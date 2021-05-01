@@ -11,16 +11,21 @@ public class Main {
 		Scanner scan = new Scanner(System.in);
 		
 		int cantProducto1=0;
+		int cantProducto2=0;
+		
 		double precioUnidad1=0;
 		double precioTotal1=0;
 		
-		int cantProducto2=0;
+		
 		double precioUnidad2=0;
 		double precioTotal2=0;
 		
+		double total=0;
+		double totalSinIva=0;
+		
 		final int iva = 21;
 		
-		
+		boolean unProducto=false;
 		String descripcion1 = null;
 		String descripcion2 = null;	
 		String razonSocial;
@@ -34,51 +39,65 @@ public class Main {
 		
 		if ("s".equals(hayProductos)) {
 			
-			System.out.println("Cantidad de productos:");
+			System.out.println("Descripcion del producto:");
+			descripcion1 = scan.next();
+			scan.nextLine();
+			
+			System.out.println("Cantidad de " + descripcion1.toString() + ": ");
 			cantProducto1 = scan.nextInt();
 			scan.nextLine();
 			
-			System.out.print("Descripcion:");
-			descripcion1 = scan.nextLine();
-			
-			System.out.print("Precio Unidad: ");
+			System.out.println("Precio Unidad: ");
 			precioUnidad1 = (scan.nextDouble() * cantProducto1);
 			
 			precioTotal1 = ((precioUnidad1 * iva) / 100);
 			precioTotal1 = (precioTotal1 + precioUnidad1);
 			
+			System.out.println("Hay más productos en caja? s/n");
+			
+			hayProductos= scan.next();
+			if ("s".equals(hayProductos)) {
+				
+				System.out.println("Descripcion del producto:");
+				descripcion2 = scan.next();
+				scan.nextLine();
+			
+				System.out.println("Cantidad de " + descripcion2.toString() + ": ");
+				cantProducto2 = scan.nextInt();
+				scan.nextLine();
+			
+			
+			
+				System.out.println("Precio Unidad: ");
+				precioUnidad2 = (scan.nextDouble() * cantProducto2);
+			
+				precioTotal2 = ((precioUnidad2 * iva) / 100);
+				precioTotal2 = (precioTotal2 + precioUnidad2);
+			
+				total = precioTotal1 + precioTotal2;
+				unProducto=true;
+			
+				}else {
+					total = (iva + precioTotal1);
+					totalSinIva = (totalSinIva + precioUnidad1);
+					unProducto=true;
+				}
+		}else {
+			unProducto = false;
 		}
 		
-		System.out.println("Hay productos en caja? s/n");
 		
-		hayProductos= scan.next();
-		
-		if ("s".equals(hayProductos)) {
-			
-			System.out.println("Cantidad de productos:");
-			cantProducto2 = scan.nextInt();
-			scan.nextLine();
-			
-			System.out.print("Descripcion:");
-			descripcion2 = scan.nextLine();
-			
-			System.out.print("Precio Unidad: ");
-			precioUnidad2 = (scan.nextDouble() * cantProducto2);
-			
-			precioTotal2 = ((precioUnidad2 * iva) / 100);
-			precioTotal2 = (precioTotal2 + precioUnidad2);
-			
-			
-		}
 		
 	
-		System.out.print("Razon Social: ");
+		System.out.println("Razon Social: ");
 		razonSocial = scan.nextLine();
 		scan.nextLine();
 		
-		System.out.print("Domicilio: ");
+		System.out.println("Domicilio: ");
 		domicilio = scan.nextLine();
+		System.out.println("\n");
 		
+		System.out.println("Imprimiendo Ticket....\n");
 		System.out.println("*************************************************************************************");
 		Date fecha = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyy");
@@ -93,13 +112,17 @@ public class Main {
 		System.out.println("-------------------------------------------------------------------------------------");
 		System.out.println("Cant.\t| Descripcion\t\t\t| P. Unit\t\t|P. Total	 ");
 		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println(cantProducto1 + "\t| " + descripcion1.toString() + "\t\t\t| $" + precioUnidad1 + "\t\t\t| $" + precioTotal1);
-		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println(cantProducto2 + "\t| " + descripcion2.toString() + "\t\t\t| $" + precioUnidad2 + " \t\t\t| $" + precioTotal2);
+		if(unProducto) {
+			System.out.println(cantProducto1 + "\t| " + descripcion1.toString() + "\t\t\t| $" + precioUnidad1 + "\t\t| $" + precioTotal1);
+			System.out.println("-------------------------------------------------------------------------------------");
+		}
+		if("s".equals(hayProductos)) {
+		  System.out.println(cantProducto2 + "\t| " + descripcion2.toString() + "\t\t\t| $" + precioUnidad2 + " \t\t| $" + precioTotal2);
+		}
 		System.out.println("-------------------------------------------------------------------------------------");
 		System.out.println("IVA: " + iva);
-		System.out.println("Subtotal sin IVA: $" + (precioUnidad1 + precioUnidad2));
-		System.out.println("Total: $" + (precioTotal1 + precioTotal2));
+		System.out.println("Subtotal sin IVA: $" + (totalSinIva));
+		System.out.println("Total: $" + (total));
 		System.out.println("*************************************************************************************");
 		
 	}
