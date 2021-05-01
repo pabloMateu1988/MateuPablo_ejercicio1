@@ -83,6 +83,8 @@ public class Main {
 		System.out.println("Domicilio: ");
 		domicilio = scan.nextLine();
 		
+		System.out.println("\n\nImprimiendo Ticket...\n\n");
+		
 		System.out.println("*************************************************************************************");
 		Date fecha = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyy");
