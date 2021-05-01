@@ -97,9 +97,9 @@ public class Main {
 		System.out.println("-------------------------------------------------------------------------------------");
 		System.out.println("Cant.\t| Descripcion\t\t\t| P. Unit\t\t|P. Total	 ");
 		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println(cantProducto1 + "\t| " + descripcion1.toString() + "\t\t\t| $" + precioUnidad1 + "\t\t\t| $" + precioTotal1);
+		System.out.println(cantProducto1 + "\t| " + descripcion1.toString() + "\t\t\t| $" + precioUnidad1 + "\t\t| $" + precioTotal1);
 		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println(cantProducto2 + "\t| " + descripcion2.toString() + "\t\t\t| $" + precioUnidad2 + " \t\t\t| $" + precioTotal2);
+		System.out.println(cantProducto2 + "\t| " + descripcion2.toString() + "\t\t\t| $" + precioUnidad2 + " \t\t| $" + precioTotal2);
 		System.out.println("-------------------------------------------------------------------------------------");
 		System.out.println("IVA: " + iva);
 		System.out.println("Subtotal sin IVA: $" + (precioUnidad1 + precioUnidad2));
