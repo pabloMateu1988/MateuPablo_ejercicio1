@@ -91,14 +91,12 @@ public class Main {
 			unProducto = false;
 		}
 		
-		//subTotal = (subTotal1 + subTotal2);
-		//iva = iva + (subTotal * 0.21);
 		total =(totalSinIva + iva);
 		
-	
+		scan.nextLine();
 		System.out.println("Razon Social: ");
 		razonSocial = scan.nextLine();
-		scan.nextLine();
+		
 		
 		System.out.println("Domicilio: ");
 		domicilio = scan.nextLine();
