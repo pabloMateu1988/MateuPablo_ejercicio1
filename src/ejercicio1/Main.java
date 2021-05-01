@@ -10,13 +10,19 @@ public class Main {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		int cantProducto=0;
-		double precioUnidad=0;
-		double precioTotal=0;
+		int cantProducto1=0;
+		double precioUnidad1=0;
+		double precioTotal1=0;
+		
+		int cantProducto2=0;
+		double precioUnidad2=0;
+		double precioTotal2=0;
+		
 		final int iva = 21;
 		
 		
-		String descripcion;	
+		String descripcion1 = null;
+		String descripcion2 = null;	
 		String razonSocial;
 		String domicilio;
 		String hayProductos="s";
@@ -26,27 +32,49 @@ public class Main {
 		
 		hayProductos= scan.next();
 		
-		while ("s".equals(hayProductos)) {
+		if ("s".equals(hayProductos)) {
 			
 			System.out.println("Cantidad de productos:");
-			cantProducto = scan.nextInt();
+			cantProducto1 = scan.nextInt();
 			scan.nextLine();
 			
 			System.out.print("Descripcion:");
-			descripcion = scan.nextLine();
+			descripcion1 = scan.nextLine();
 			
 			System.out.print("Precio Unidad: ");
-			precioUnidad = scan.nextDouble();
+			precioUnidad1 = (scan.nextDouble() * cantProducto1);
 			
-			precioTotal = ((precioUnidad * iva) / 100);
+			precioTotal1 = ((precioUnidad1 * iva) / 100);
+			precioTotal1 = (precioTotal1 + precioUnidad1);
 			
-			System.out.println("Hay productos en caja? s/n");
-			
-			hayProductos= scan.next();
 		}
+		
+		System.out.println("Hay productos en caja? s/n");
+		
+		hayProductos= scan.next();
+		
+		if ("s".equals(hayProductos)) {
+			
+			System.out.println("Cantidad de productos:");
+			cantProducto2 = scan.nextInt();
+			scan.nextLine();
+			
+			System.out.print("Descripcion:");
+			descripcion2 = scan.nextLine();
+			
+			System.out.print("Precio Unidad: ");
+			precioUnidad2 = (scan.nextDouble() * cantProducto2);
+			
+			precioTotal2 = ((precioUnidad2 * iva) / 100);
+			precioTotal2 = (precioTotal2 + precioUnidad2);
+			
+			
+		}
+		
 	
 		System.out.print("Razon Social: ");
 		razonSocial = scan.nextLine();
+		scan.nextLine();
 		
 		System.out.print("Domicilio: ");
 		domicilio = scan.nextLine();
@@ -62,7 +90,17 @@ public class Main {
 		System.out.print("Domicilio:: ");
 		System.out.println(domicilio);
 		System.out.println("*************************************************************************************");
-		System.out.println("----------------------------------------------------------------------------------------------------");
+		System.out.println("-------------------------------------------------------------------------------------");
+		System.out.println("Cant.\t| Descripcion\t\t\t| P. Unit\t\t|P. Total	 ");
+		System.out.println("-------------------------------------------------------------------------------------");
+		System.out.println(cantProducto1 + "\t| " + descripcion1.toString() + "\t\t\t| $" + precioUnidad1 + "\t\t\t| $" + precioTotal1);
+		System.out.println("-------------------------------------------------------------------------------------");
+		System.out.println(cantProducto2 + "\t| " + descripcion2.toString() + "\t\t\t| $" + precioUnidad2 + " \t\t\t| $" + precioTotal2);
+		System.out.println("-------------------------------------------------------------------------------------");
+		System.out.println("IVA: " + iva);
+		System.out.println("Subtotal sin IVA: $" + (precioUnidad1 + precioUnidad2));
+		System.out.println("Total: $" + (precioTotal1 + precioTotal2));
+		System.out.println("*************************************************************************************");
 		
 	}
 
