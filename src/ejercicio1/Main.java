@@ -12,14 +12,11 @@ public class Main {
 		
 		int cantProducto1=0;
 		double precioUnidad1=0;
-		double precioTotal1=0;
 		double subTotal1=0;
 		
 		int cantProducto2=0;
 		double precioUnidad2=0;
-		double precioTotal2=0;
 		double subTotal2=0;
-		double totalIva=0;
 		
 		double subTotal=0;
 		double iva=0;
@@ -50,9 +47,8 @@ public class Main {
 			System.out.println("Precio Unidad: ");
 			precioUnidad1 = (scan.nextDouble());
 			
-			//precioTotal1 = ((precioUnidad1 * iva) / 100);
-			precioTotal1 = ((precioTotal1 + precioUnidad1) * cantProducto1);
-			subTotal1 = (subTotal1 + (precioUnidad1 * cantProducto1));
+			
+			subTotal1 = (precioUnidad1 * cantProducto1);
 			
 			System.out.println("Hay más productos en caja? s/n");
 			
@@ -72,9 +68,8 @@ public class Main {
 				System.out.println("Precio Unidad: ");
 				precioUnidad2 = (scan.nextDouble());
 				
-				//precioTotal2 = ((precioUnidad2 * iva) / 100);
-				precioTotal2 = ((precioTotal2 + precioUnidad2) * cantProducto2);
-				subTotal2 = (subTotal2 + (precioUnidad2 * cantProducto2));
+				
+				subTotal2 = (precioUnidad2 * cantProducto2);
 				
 				
 			}
@@ -82,8 +77,8 @@ public class Main {
 		}
 		
 		subTotal = (subTotal1 + subTotal2);
-		iva = iva + (subTotal * 0.21);
-		total = (total + (subTotal1 + subTotal2) + iva);
+		iva = subTotal * 0.21;
+		total = subTotal1 + subTotal2 + iva;
 		
 		
 	
@@ -110,9 +105,9 @@ public class Main {
 		System.out.println("-------------------------------------------------------------------------------------");
 		System.out.println("Cant.\t| Descripcion\t\t\t| P. Unit\t\t|P. Total	 ");
 		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println(cantProducto1 + "\t| " + descripcion1.toString() + "\t\t\t| $" + precioUnidad1 + "\t\t| $" + precioTotal1);
+		System.out.println(cantProducto1 + "\t| " + descripcion1.toString() + "\t\t\t| $" + precioUnidad1 + "\t\t| $" + subTotal1);
 		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println(cantProducto2 + "\t| " + descripcion2.toString() + "\t\t\t| $" + precioUnidad2 + " \t\t| $" + precioTotal2);
+		System.out.println(cantProducto2 + "\t| " + descripcion2.toString() + "\t\t\t| $" + precioUnidad2 + " \t\t| $" + subTotal2);
 		System.out.println("-------------------------------------------------------------------------------------");
 		System.out.println("IVA: $" + iva);
 		System.out.println("Subtotal sin IVA: $" + subTotal);
