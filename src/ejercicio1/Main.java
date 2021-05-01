@@ -47,7 +47,7 @@ public class Main {
 			
 			precioTotal1 = ((precioUnidad1 * iva) / 100);
 			precioTotal1 = (precioTotal1 + precioUnidad1);
-			System.out.println("Hay productos en caja? s/n");
+			System.out.println("Hay más productos en caja? s/n");
 			
 			hayProductos= scan.next();
 			
