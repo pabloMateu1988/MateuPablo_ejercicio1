@@ -34,49 +34,53 @@ public class Main {
 		
 		if ("s".equals(hayProductos)) {
 			
-			System.out.println("Cantidad de productos:");
+			System.out.println("Descripcion del producto:");
+			descripcion1 = scan.next();
+			scan.nextLine();
+			
+			System.out.println("Cantidad de " + descripcion1.toString() + ": ");
 			cantProducto1 = scan.nextInt();
 			scan.nextLine();
 			
-			System.out.print("Descripcion:");
-			descripcion1 = scan.nextLine();
-			
-			System.out.print("Precio Unidad: ");
+			System.out.println("Precio Unidad: ");
 			precioUnidad1 = (scan.nextDouble() * cantProducto1);
 			
 			precioTotal1 = ((precioUnidad1 * iva) / 100);
 			precioTotal1 = (precioTotal1 + precioUnidad1);
+			System.out.println("Hay productos en caja? s/n");
+			
+			hayProductos= scan.next();
+			
+			if ("s".equals(hayProductos)) {
+				
+				System.out.println("Descripcion del producto:");
+				descripcion2 = scan.next();
+				scan.nextLine();
+				
+				System.out.println("Cantidad de " + descripcion2.toString() + ": ");
+				cantProducto2 = scan.nextInt();
+				scan.nextLine();
+				
+				
+				System.out.println("Precio Unidad: ");
+				precioUnidad2 = (scan.nextDouble() * cantProducto2);
+				
+				precioTotal2 = ((precioUnidad2 * iva) / 100);
+				precioTotal2 = (precioTotal2 + precioUnidad2);
+				
+				
+			}
 			
 		}
 		
-		System.out.println("Hay productos en caja? s/n");
 		
-		hayProductos= scan.next();
-		
-		if ("s".equals(hayProductos)) {
-			
-			System.out.println("Cantidad de productos:");
-			cantProducto2 = scan.nextInt();
-			scan.nextLine();
-			
-			System.out.print("Descripcion:");
-			descripcion2 = scan.nextLine();
-			
-			System.out.print("Precio Unidad: ");
-			precioUnidad2 = (scan.nextDouble() * cantProducto2);
-			
-			precioTotal2 = ((precioUnidad2 * iva) / 100);
-			precioTotal2 = (precioTotal2 + precioUnidad2);
-			
-			
-		}
 		
 	
-		System.out.print("Razon Social: ");
+		System.out.println("Razon Social: ");
 		razonSocial = scan.nextLine();
 		scan.nextLine();
 		
-		System.out.print("Domicilio: ");
+		System.out.println("Domicilio: ");
 		domicilio = scan.nextLine();
 		
 		System.out.println("*************************************************************************************");
