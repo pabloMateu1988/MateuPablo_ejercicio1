@@ -22,8 +22,9 @@ public class Main {
 		
 		double total=0;
 		double totalSinIva=0;
+		double iva=0;
 		
-		final int iva = 21;
+
 		
 		boolean unProducto=false;
 		String descripcion1 = null;
@@ -48,10 +49,11 @@ public class Main {
 			scan.nextLine();
 			
 			System.out.println("Precio Unidad: ");
-			precioUnidad1 = (scan.nextDouble() * cantProducto1);
+			precioUnidad1 = (scan.nextDouble());
 			
-			precioTotal1 = ((precioUnidad1 * iva) / 100);
-			precioTotal1 = (precioTotal1 + precioUnidad1);
+			precioTotal1 = precioUnidad1 * cantProducto1;
+			totalSinIva = precioTotal1;
+			iva = iva + (precioTotal1 * 0.21);
 			
 			System.out.println("Hay más productos en caja? s/n");
 			
@@ -69,24 +71,29 @@ public class Main {
 			
 			
 				System.out.println("Precio Unidad: ");
-				precioUnidad2 = (scan.nextDouble() * cantProducto2);
+				precioUnidad2 = (scan.nextDouble());
 			
-				precioTotal2 = ((precioUnidad2 * iva) / 100);
-				precioTotal2 = (precioTotal2 + precioUnidad2);
+				precioTotal2 = precioUnidad2 * cantProducto2;
 			
-				total = precioTotal1 + precioTotal2;
+				totalSinIva = precioTotal1 + precioTotal2;
+				iva=0;
+				iva = (iva + ((precioTotal1 + precioTotal2) * 0.21));
+				
 				unProducto=true;
 			
 				}else {
+					//iva = iva + (subTotal * 0.21);
 					total = (iva + precioTotal1);
-					totalSinIva = (totalSinIva + precioUnidad1);
+					totalSinIva = precioTotal1;
 					unProducto=true;
 				}
 		}else {
 			unProducto = false;
 		}
 		
-		
+		//subTotal = (subTotal1 + subTotal2);
+		//iva = iva + (subTotal * 0.21);
+		total =(totalSinIva + iva);
 		
 	
 		System.out.println("Razon Social: ");
@@ -120,7 +127,7 @@ public class Main {
 		  System.out.println(cantProducto2 + "\t| " + descripcion2.toString() + "\t\t\t| $" + precioUnidad2 + " \t\t| $" + precioTotal2);
 		}
 		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println("IVA: " + iva);
+		System.out.println("IVA: $" + iva);
 		System.out.println("Subtotal sin IVA: $" + (totalSinIva));
 		System.out.println("Total: $" + (total));
 		System.out.println("*************************************************************************************");
